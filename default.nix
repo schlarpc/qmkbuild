@@ -3,8 +3,7 @@ let
   src = pkgs.fetchgit {
     url = "https://github.com/qmk/qmk_firmware.git";
     rev = "refs/tags/0.21.1";
-    leaveDotGit = true;
-    hash = "sha256-dqwqv+JeagH6uxRI6jFkVPR39BpyOD+3yHg0nTN8OZQ=";
+    hash = "sha256-flR3sjynN25pkGGlxY7pCjYzSP/+civbXNiQtuZi7xM=";
   };
   shell = (import "${src}/shell.nix" { });
   filterShellAttrs = key: value: !builtins.elem key [ "nobuildPhase" "phases" ];
@@ -22,6 +21,5 @@ let
         mkdir $out
         cp .build/*.hex $out
       '';
-      nativeBuildInputs = [ pkgs.which ];
     });
 in drv
