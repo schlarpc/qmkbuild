@@ -2,9 +2,9 @@ let
   pkgs = (import <nixpkgs> { });
   src = pkgs.fetchgit {
     url = "https://github.com/qmk/qmk_firmware.git";
-    rev = "refs/tags/0.14.29";
+    rev = "refs/tags/0.21.1";
     leaveDotGit = true;
-    sha256 = "sha256-+QwBHEwYYjOCdHlNjP1BtnxzpejzMBok4YnKmgm9SMg=";
+    hash = "sha256-dqwqv+JeagH6uxRI6jFkVPR39BpyOD+3yHg0nTN8OZQ=";
   };
   shell = (import "${src}/shell.nix" { });
   filterShellAttrs = key: value: !builtins.elem key [ "nobuildPhase" "phases" ];
